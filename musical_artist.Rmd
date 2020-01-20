@@ -15,12 +15,17 @@ musical_artist <- read_csv('musical_artist.csv')
 
 ```{r}
 musical_artist_age <- musical_artist %>%
-  mutate(age = deathYear - birthYear)
+  mutate(age = deathYear - as.numeric(birthYear))
 
 musical_artists_1900s <- musical_artist_age %>% 
-  filter(
-    birthYear >= 1900
-  )
+  filter(birthYear >= 1815) %>% 
+  filter(deathYear > as.numeric(birthYear)) %>%
+  filter(age>5) %>%
+  filter(age<110) %>%
+  filter(deathYear < 2019)
+
+ggplot( data = musical_artists_1900s) +
+  geom_point( mapping = aes(x= as.numeric(birthYear), y = age)) + xlab("Birth Year") + ylab("age") + ggtitle("Age of Death of Musical Artists since the 1800s")
   
   
 ```
