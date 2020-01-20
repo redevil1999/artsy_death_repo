@@ -1,0 +1,26 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+#load tidyverse
+library(tidyverse)
+```
+
+```{r}
+#load file 
+musical_artist <- read_csv('musical_artist.csv')
+```
+
+```{r}
+musical_artist_age <- musical_artist %>%
+  mutate(age = deathYear - birthYear)
+
+musical_artists_1900s <- musical_artist_age %>% 
+  filter(
+    birthYear >= 1900
+  )
+  
+  
+```
