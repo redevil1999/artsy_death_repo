@@ -1,6 +1,6 @@
 # import json
 
-# with open('something.json', encoding= 'utf-16') as file:
+# with open('filtered_music.json', encoding= 'utf8') as file:
 #     data_musical_artist = json.load(file)
 
 # musical_artist = []
@@ -25,17 +25,14 @@
 #         musical_artist_age.append(artist['ontology/deathYear'])
 
 musical_artist_age = [
-    {'ontology/birthYear':'1995',
-    'ontology/deathYear': '2019'},
-    {'ontology/birthYear': '1957',
-    'ontology/deathYear': '1999'}
+    {'ontology/birthYear': '1998',
+    'ontology/deathYear': '2015'},
+    {'ontology/birthYear': '1880',
+    'ontology/deathYear': '1999'
+    }
 ]
 
 with open('musical_artist_age.csv', 'w', encoding= 'utf8') as file: 
-    file.write(f'birthYear, deathYear')
+    file.write('birthYear, deathYear, \n')
     for entry in musical_artist_age: 
-        age = { 
-            'birthYear': entry['ontology/birthYear'], 
-            'deathYear': entry['ontology/deathYear']
-        } 
-        file.write(f"{entry['birthYear']}, {entry['deathYear']}\n")
+            file.write(f"{entry['ontology/birthYear']}, {entry['ontology/deathYear']}\n")
