@@ -1,0 +1,953 @@
+Country;Year;Expectancy
+Australia;1815;34
+Australia;1816;34
+Australia;1817;34
+Australia;1818;34
+Australia;1819;34
+Australia;1820;34
+Australia;1821;34
+Australia;1822;34
+Australia;1823;34
+Australia;1824;34
+Australia;1825;34
+Australia;1826;34
+Australia;1827;34
+Australia;1828;34
+Australia;1829;34
+Australia;1830;34
+Australia;1831;34
+Australia;1832;34
+Australia;1833;34
+Australia;1834;34
+Australia;1835;34
+Australia;1836;34
+Australia;1837;34
+Australia;1838;34
+Australia;1839;34
+Australia;1840;34
+Australia;1841;34
+Australia;1842;34
+Australia;1843;34
+Australia;1844;34
+Australia;1845;34
+Australia;1846;34
+Australia;1847;34
+Australia;1848;34
+Australia;1849;34
+Australia;1850;34
+Australia;1851;34
+Australia;1852;34
+Australia;1853;34
+Australia;1854;34
+Australia;1855;34
+Australia;1856;34
+Australia;1857;34
+Australia;1858;34
+Australia;1859;34
+Australia;1860;34
+Australia;1861;34
+Australia;1862;34
+Australia;1863;34
+Australia;1864;34
+Australia;1865;34
+Australia;1866;34
+Australia;1867;34
+Australia;1868;34
+Australia;1869;34
+Australia;1870;34
+Australia;1871;35
+Australia;1872;35
+Australia;1873;36
+Australia;1874;36
+Australia;1875;37
+Australia;1876;37
+Australia;1877;38
+Australia;1878;38
+Australia;1879;39
+Australia;1880;39
+Australia;1881;40
+Australia;1882;40
+Australia;1883;41
+Australia;1884;41
+Australia;1885;42
+Australia;1886;43
+Australia;1887;43
+Australia;1888;44
+Australia;1889;44
+Australia;1890;45
+Australia;1891;45
+Australia;1892;46
+Australia;1893;46
+Australia;1894;47
+Australia;1895;47
+Australia;1896;48
+Australia;1897;48
+Australia;1898;49
+Australia;1899;49
+Australia;1900;50
+Australia;1901;51
+Australia;1902;51
+Australia;1903;52
+Australia;1904;52
+Australia;1905;53
+Australia;1906;53
+Australia;1907;54
+Australia;1908;54
+Australia;1909;55
+Australia;1910;55
+Australia;1911;56
+Australia;1912;56
+Australia;1913;57
+Australia;1914;57
+Australia;1915;58
+Australia;1916;59
+Australia;1917;59
+Australia;1918;55
+Australia;1919;60
+Australia;1920;61
+Australia;1921;61
+Australia;1922;63
+Australia;1923;62
+Australia;1924;63
+Australia;1925;63
+Australia;1926;63
+Australia;1927;63
+Australia;1928;63
+Australia;1929;63
+Australia;1930;65
+Australia;1931;66
+Australia;1932;66
+Australia;1933;66
+Australia;1934;65
+Australia;1935;65
+Australia;1936;66
+Australia;1937;66
+Australia;1938;66
+Australia;1939;66
+Australia;1940;67
+Australia;1941;66
+Australia;1942;66
+Australia;1943;67
+Australia;1944;68
+Australia;1945;69
+Australia;1946;68
+Australia;1947;69
+Australia;1948;69
+Australia;1949;69
+Australia;1950;69
+Canada;1815;39
+Canada;1816;39
+Canada;1817;39
+Canada;1818;39
+Canada;1819;39
+Canada;1820;39
+Canada;1821;39
+Canada;1822;39
+Canada;1823;39
+Canada;1824;39
+Canada;1825;39
+Canada;1826;39
+Canada;1827;39
+Canada;1828;39
+Canada;1829;39
+Canada;1830;39
+Canada;1831;39
+Canada;1832;39
+Canada;1833;39
+Canada;1834;39
+Canada;1835;40
+Canada;1836;40
+Canada;1837;40
+Canada;1838;40
+Canada;1839;40
+Canada;1840;40
+Canada;1841;40
+Canada;1842;40
+Canada;1843;40
+Canada;1844;41
+Canada;1845;41
+Canada;1846;41
+Canada;1847;41
+Canada;1848;41
+Canada;1849;41
+Canada;1850;41
+Canada;1851;41
+Canada;1852;41
+Canada;1853;41
+Canada;1854;41
+Canada;1855;41
+Canada;1856;41
+Canada;1857;41
+Canada;1858;41
+Canada;1859;41
+Canada;1860;42
+Canada;1861;42
+Canada;1862;42
+Canada;1863;42
+Canada;1864;42
+Canada;1865;42
+Canada;1866;42
+Canada;1867;42
+Canada;1868;42
+Canada;1869;42
+Canada;1870;42
+Canada;1871;43
+Canada;1872;43
+Canada;1873;43
+Canada;1874;43
+Canada;1875;43
+Canada;1876;44
+Canada;1877;44
+Canada;1878;44
+Canada;1879;44
+Canada;1880;45
+Canada;1881;45
+Canada;1882;45
+Canada;1883;45
+Canada;1884;45
+Canada;1885;45
+Canada;1886;45
+Canada;1887;45
+Canada;1888;45
+Canada;1889;45
+Canada;1890;45
+Canada;1891;45
+Canada;1892;46
+Canada;1893;46
+Canada;1894;46
+Canada;1895;47
+Canada;1896;47
+Canada;1897;47
+Canada;1898;48
+Canada;1899;48
+Canada;1900;48
+Canada;1901;49
+Canada;1902;49
+Canada;1903;49
+Canada;1904;50
+Canada;1905;50
+Canada;1906;51
+Canada;1907;51
+Canada;1908;51
+Canada;1909;52
+Canada;1910;52
+Canada;1911;53
+Canada;1912;53
+Canada;1913;53
+Canada;1914;54
+Canada;1915;54
+Canada;1916;55
+Canada;1917;55
+Canada;1918;47
+Canada;1919;56
+Canada;1920;57
+Canada;1921;57
+Canada;1922;57
+Canada;1923;57
+Canada;1924;59
+Canada;1925;59
+Canada;1926;58
+Canada;1927;59
+Canada;1928;59
+Canada;1929;58
+Canada;1930;59
+Canada;1931;60
+Canada;1932;61
+Canada;1933;62
+Canada;1934;63
+Canada;1935;63
+Canada;1936;63
+Canada;1937;61
+Canada;1938;63
+Canada;1939;64
+Canada;1940;64
+Canada;1941;64
+Canada;1942;65
+Canada;1943;65
+Canada;1944;65
+Canada;1945;66
+Canada;1946;67
+Canada;1947;67
+Canada;1948;67
+Canada;1949;68
+Canada;1950;68
+India;1815;25
+India;1816;25
+India;1817;25
+India;1818;25
+India;1819;25
+India;1820;25
+India;1821;25
+India;1822;25
+India;1823;25
+India;1824;25
+India;1825;25
+India;1826;25
+India;1827;25
+India;1828;25
+India;1829;25
+India;1830;25
+India;1831;25
+India;1832;23
+India;1833;22
+India;1834;25
+India;1835;25
+India;1836;25
+India;1837;24
+India;1838;24
+India;1839;25
+India;1840;25
+India;1841;25
+India;1842;25
+India;1843;25
+India;1844;25
+India;1845;25
+India;1846;25
+India;1847;25
+India;1848;25
+India;1849;25
+India;1850;25
+India;1851;25
+India;1852;25
+India;1853;25
+India;1854;25
+India;1855;25
+India;1856;25
+India;1857;25
+India;1858;25
+India;1859;25
+India;1860;23
+India;1861;22
+India;1862;25
+India;1863;25
+India;1864;25
+India;1865;25
+India;1866;21
+India;1867;25
+India;1868;25
+India;1869;21
+India;1870;25
+India;1871;25
+India;1872;25
+India;1873;25
+India;1874;25
+India;1875;25
+India;1876;20
+India;1877;19
+India;1878;20
+India;1879;25
+India;1880;25
+India;1881;25
+India;1882;25
+India;1883;25
+India;1884;25
+India;1885;25
+India;1886;25
+India;1887;25
+India;1888;24
+India;1889;24
+India;1890;24
+India;1891;23
+India;1892;23
+India;1893;24
+India;1894;24
+India;1895;24
+India;1896;23
+India;1897;20
+India;1898;26
+India;1899;23
+India;1900;18
+India;1901;23
+India;1902;24
+India;1903;23
+India;1904;22
+India;1905;22
+India;1906;22
+India;1907;19
+India;1908;23
+India;1909;23
+India;1910;23
+India;1911;23
+India;1912;23
+India;1913;24
+India;1914;24
+India;1915;24
+India;1916;24
+India;1917;24
+India;1918;8
+India;1919;25
+India;1920;25
+India;1921;25
+India;1922;25
+India;1923;26
+India;1924;26
+India;1925;27
+India;1926;27
+India;1927;28
+India;1928;28
+India;1929;28
+India;1930;29
+India;1931;29
+India;1932;30
+India;1933;30
+India;1934;30
+India;1935;31
+India;1936;31
+India;1937;31
+India;1938;32
+India;1939;32
+India;1940;32
+India;1941;33
+India;1942;33
+India;1943;32
+India;1944;33
+India;1945;34
+India;1946;34
+India;1947;32
+India;1948;34
+India;1949;35
+India;1950;35
+New Zealand;1815;34
+New Zealand;1816;34
+New Zealand;1817;34
+New Zealand;1818;34
+New Zealand;1819;34
+New Zealand;1820;34
+New Zealand;1821;34
+New Zealand;1822;34
+New Zealand;1823;34
+New Zealand;1824;34
+New Zealand;1825;34
+New Zealand;1826;34
+New Zealand;1827;34
+New Zealand;1828;34
+New Zealand;1829;34
+New Zealand;1830;34
+New Zealand;1831;34
+New Zealand;1832;34
+New Zealand;1833;34
+New Zealand;1834;34
+New Zealand;1835;34
+New Zealand;1836;34
+New Zealand;1837;34
+New Zealand;1838;34
+New Zealand;1839;34
+New Zealand;1840;34
+New Zealand;1841;34
+New Zealand;1842;34
+New Zealand;1843;34
+New Zealand;1844;34
+New Zealand;1845;34
+New Zealand;1846;34
+New Zealand;1847;34
+New Zealand;1848;34
+New Zealand;1849;34
+New Zealand;1850;34
+New Zealand;1851;34
+New Zealand;1852;34
+New Zealand;1853;34
+New Zealand;1854;34
+New Zealand;1855;34
+New Zealand;1856;34
+New Zealand;1857;34
+New Zealand;1858;34
+New Zealand;1859;34
+New Zealand;1860;34
+New Zealand;1861;34
+New Zealand;1862;34
+New Zealand;1863;34
+New Zealand;1864;34
+New Zealand;1865;34
+New Zealand;1866;34
+New Zealand;1867;34
+New Zealand;1868;34
+New Zealand;1869;34
+New Zealand;1870;34
+New Zealand;1871;35
+New Zealand;1872;35
+New Zealand;1873;35
+New Zealand;1874;36
+New Zealand;1875;36
+New Zealand;1876;37
+New Zealand;1877;37
+New Zealand;1878;38
+New Zealand;1879;38
+New Zealand;1880;39
+New Zealand;1881;39
+New Zealand;1882;39
+New Zealand;1883;40
+New Zealand;1884;40
+New Zealand;1885;41
+New Zealand;1886;41
+New Zealand;1887;42
+New Zealand;1888;42
+New Zealand;1889;43
+New Zealand;1890;43
+New Zealand;1891;43
+New Zealand;1892;44
+New Zealand;1893;44
+New Zealand;1894;45
+New Zealand;1895;45
+New Zealand;1896;46
+New Zealand;1897;46
+New Zealand;1898;47
+New Zealand;1899;47
+New Zealand;1900;47
+New Zealand;1901;48
+New Zealand;1902;48
+New Zealand;1903;49
+New Zealand;1904;49
+New Zealand;1905;50
+New Zealand;1906;50
+New Zealand;1907;51
+New Zealand;1908;51
+New Zealand;1909;52
+New Zealand;1910;52
+New Zealand;1911;52
+New Zealand;1912;53
+New Zealand;1913;53
+New Zealand;1914;54
+New Zealand;1915;54
+New Zealand;1916;55
+New Zealand;1917;55
+New Zealand;1918;47
+New Zealand;1919;56
+New Zealand;1920;56
+New Zealand;1921;57
+New Zealand;1922;57
+New Zealand;1923;58
+New Zealand;1924;58
+New Zealand;1925;59
+New Zealand;1926;59
+New Zealand;1927;60
+New Zealand;1928;60
+New Zealand;1929;60
+New Zealand;1930;61
+New Zealand;1931;61
+New Zealand;1932;62
+New Zealand;1933;62
+New Zealand;1934;63
+New Zealand;1935;63
+New Zealand;1936;64
+New Zealand;1937;64
+New Zealand;1938;65
+New Zealand;1939;65
+New Zealand;1940;65
+New Zealand;1941;66
+New Zealand;1942;66
+New Zealand;1943;67
+New Zealand;1944;67
+New Zealand;1945;68
+New Zealand;1946;68
+New Zealand;1947;69
+New Zealand;1948;69
+New Zealand;1949;69
+New Zealand;1950;69
+Nigeria ;1815;30
+Nigeria ;1816;30
+Nigeria ;1817;30
+Nigeria ;1818;30
+Nigeria ;1819;30
+Nigeria ;1820;30
+Nigeria ;1821;30
+Nigeria ;1822;30
+Nigeria ;1823;30
+Nigeria ;1824;30
+Nigeria ;1825;30
+Nigeria ;1826;30
+Nigeria ;1827;30
+Nigeria ;1828;30
+Nigeria ;1829;30
+Nigeria ;1830;30
+Nigeria ;1831;30
+Nigeria ;1832;30
+Nigeria ;1833;30
+Nigeria ;1834;30
+Nigeria ;1835;30
+Nigeria ;1836;30
+Nigeria ;1837;30
+Nigeria ;1838;30
+Nigeria ;1839;30
+Nigeria ;1840;30
+Nigeria ;1841;30
+Nigeria ;1842;30
+Nigeria ;1843;30
+Nigeria ;1844;30
+Nigeria ;1845;30
+Nigeria ;1846;30
+Nigeria ;1847;30
+Nigeria ;1848;30
+Nigeria ;1849;30
+Nigeria ;1850;30
+Nigeria ;1851;30
+Nigeria ;1852;30
+Nigeria ;1853;30
+Nigeria ;1854;30
+Nigeria ;1855;30
+Nigeria ;1856;30
+Nigeria ;1857;30
+Nigeria ;1858;30
+Nigeria ;1859;30
+Nigeria ;1860;30
+Nigeria ;1861;30
+Nigeria ;1862;30
+Nigeria ;1863;30
+Nigeria ;1864;30
+Nigeria ;1865;30
+Nigeria ;1866;30
+Nigeria ;1867;30
+Nigeria ;1868;30
+Nigeria ;1869;30
+Nigeria ;1870;30
+Nigeria ;1871;31
+Nigeria ;1872;31
+Nigeria ;1873;31
+Nigeria ;1874;31
+Nigeria ;1875;31
+Nigeria ;1876;31
+Nigeria ;1877;31
+Nigeria ;1878;31
+Nigeria ;1879;31
+Nigeria ;1880;31
+Nigeria ;1881;32
+Nigeria ;1882;32
+Nigeria ;1883;32
+Nigeria ;1884;32
+Nigeria ;1885;32
+Nigeria ;1886;32
+Nigeria ;1887;32
+Nigeria ;1888;32
+Nigeria ;1889;32
+Nigeria ;1890;33
+Nigeria ;1891;33
+Nigeria ;1892;33
+Nigeria ;1893;33
+Nigeria ;1894;33
+Nigeria ;1895;33
+Nigeria ;1896;33
+Nigeria ;1897;33
+Nigeria ;1898;33
+Nigeria ;1899;34
+Nigeria ;1900;34
+Nigeria ;1901;34
+Nigeria ;1902;34
+Nigeria ;1903;34
+Nigeria ;1904;34
+Nigeria ;1905;34
+Nigeria ;1906;34
+Nigeria ;1907;34
+Nigeria ;1908;34
+Nigeria ;1909;35
+Nigeria ;1910;35
+Nigeria ;1911;35
+Nigeria ;1912;35
+Nigeria ;1913;35
+Nigeria ;1914;35
+Nigeria ;1915;35
+Nigeria ;1916;35
+Nigeria ;1917;35
+Nigeria ;1918;17
+Nigeria ;1919;36
+Nigeria ;1920;36
+Nigeria ;1921;36
+Nigeria ;1922;36
+Nigeria ;1923;36
+Nigeria ;1924;36
+Nigeria ;1925;36
+Nigeria ;1926;36
+Nigeria ;1927;37
+Nigeria ;1928;37
+Nigeria ;1929;37
+Nigeria ;1930;37
+Nigeria ;1931;37
+Nigeria ;1932;37
+Nigeria ;1933;37
+Nigeria ;1934;37
+Nigeria ;1935;37
+Nigeria ;1936;38
+Nigeria ;1937;38
+Nigeria ;1938;38
+Nigeria ;1939;38
+Nigeria ;1940;38
+Nigeria ;1941;38
+Nigeria ;1942;38
+Nigeria ;1943;38
+Nigeria ;1944;38
+Nigeria ;1945;38
+Nigeria ;1946;39
+Nigeria ;1947;40
+Nigeria ;1948;41
+Nigeria ;1949;42
+Nigeria ;1950;43
+United Kingdom ;1815;41
+United Kingdom ;1816;40
+United Kingdom ;1817;41
+United Kingdom ;1818;40
+United Kingdom ;1819;41
+United Kingdom ;1820;41
+United Kingdom ;1821;42
+United Kingdom ;1822;41
+United Kingdom ;1823;40
+United Kingdom ;1824;39
+United Kingdom ;1825;40
+United Kingdom ;1826;40
+United Kingdom ;1827;41
+United Kingdom ;1828;42
+United Kingdom ;1829;42
+United Kingdom ;1830;43
+United Kingdom ;1831;41
+United Kingdom ;1832;40
+United Kingdom ;1833;41
+United Kingdom ;1834;41
+United Kingdom ;1835;41
+United Kingdom ;1836;41
+United Kingdom ;1837;40
+United Kingdom ;1838;40
+United Kingdom ;1839;41
+United Kingdom ;1840;40
+United Kingdom ;1841;42
+United Kingdom ;1842;41
+United Kingdom ;1843;42
+United Kingdom ;1844;42
+United Kingdom ;1845;43
+United Kingdom ;1846;40
+United Kingdom ;1847;38
+United Kingdom ;1848;40
+United Kingdom ;1849;37
+United Kingdom ;1850;43
+United Kingdom ;1851;41
+United Kingdom ;1852;41
+United Kingdom ;1853;41
+United Kingdom ;1854;39
+United Kingdom ;1855;41
+United Kingdom ;1856;43
+United Kingdom ;1857;42
+United Kingdom ;1858;40
+United Kingdom ;1859;41
+United Kingdom ;1860;43
+United Kingdom ;1861;42
+United Kingdom ;1862;43
+United Kingdom ;1863;40
+United Kingdom ;1864;40
+United Kingdom ;1865;41
+United Kingdom ;1866;40
+United Kingdom ;1867;43
+United Kingdom ;1868;42
+United Kingdom ;1869;42
+United Kingdom ;1870;41
+United Kingdom ;1871;41
+United Kingdom ;1872;43
+United Kingdom ;1873;44
+United Kingdom ;1874;42
+United Kingdom ;1875;42
+United Kingdom ;1876;44
+United Kingdom ;1877;45
+United Kingdom ;1878;43
+United Kingdom ;1879;44
+United Kingdom ;1880;44
+United Kingdom ;1881;46
+United Kingdom ;1882;45
+United Kingdom ;1883;45
+United Kingdom ;1884;45
+United Kingdom ;1885;46
+United Kingdom ;1886;45
+United Kingdom ;1887;46
+United Kingdom ;1888;47
+United Kingdom ;1889;46
+United Kingdom ;1890;45
+United Kingdom ;1891;44
+United Kingdom ;1892;45
+United Kingdom ;1893;45
+United Kingdom ;1894;48
+United Kingdom ;1895;46
+United Kingdom ;1896;47
+United Kingdom ;1897;47
+United Kingdom ;1898;47
+United Kingdom ;1899;46
+United Kingdom ;1900;46
+United Kingdom ;1901;48
+United Kingdom ;1902;49
+United Kingdom ;1903;50
+United Kingdom ;1904;49
+United Kingdom ;1905;51
+United Kingdom ;1906;51
+United Kingdom ;1907;51
+United Kingdom ;1908;52
+United Kingdom ;1909;52
+United Kingdom ;1910;54
+United Kingdom ;1911;51
+United Kingdom ;1912;55
+United Kingdom ;1913;54
+United Kingdom ;1914;52
+United Kingdom ;1915;48
+United Kingdom ;1916;48
+United Kingdom ;1917;46
+United Kingdom ;1918;40
+United Kingdom ;1919;54
+United Kingdom ;1920;57
+United Kingdom ;1921;58
+United Kingdom ;1922;57
+United Kingdom ;1923;59
+United Kingdom ;1924;58
+United Kingdom ;1925;58
+United Kingdom ;1926;60
+United Kingdom ;1927;59
+United Kingdom ;1928;60
+United Kingdom ;1929;58
+United Kingdom ;1930;61
+United Kingdom ;1931;60
+United Kingdom ;1932;61
+United Kingdom ;1933;61
+United Kingdom ;1934;61
+United Kingdom ;1935;62
+United Kingdom ;1936;62
+United Kingdom ;1937;62
+United Kingdom ;1938;63
+United Kingdom ;1939;64
+United Kingdom ;1940;61
+United Kingdom ;1941;61
+United Kingdom ;1942;64
+United Kingdom ;1943;64
+United Kingdom ;1944;65
+United Kingdom ;1945;66
+United Kingdom ;1946;66
+United Kingdom ;1947;66
+United Kingdom ;1948;68
+United Kingdom ;1949;68
+United Kingdom ;1950;69
+United States ;1815;39
+United States ;1816;39
+United States ;1817;39
+United States ;1818;39
+United States ;1819;39
+United States ;1820;39
+United States ;1821;39
+United States ;1822;39
+United States ;1823;39
+United States ;1824;39
+United States ;1825;39
+United States ;1826;39
+United States ;1827;39
+United States ;1828;39
+United States ;1829;39
+United States ;1830;39
+United States ;1831;39
+United States ;1832;39
+United States ;1833;39
+United States ;1834;39
+United States ;1835;39
+United States ;1836;39
+United States ;1837;39
+United States ;1838;39
+United States ;1839;39
+United States ;1840;39
+United States ;1841;39
+United States ;1842;39
+United States ;1843;39
+United States ;1844;39
+United States ;1845;39
+United States ;1846;39
+United States ;1847;39
+United States ;1848;39
+United States ;1849;39
+United States ;1850;39
+United States ;1851;39
+United States ;1852;39
+United States ;1853;39
+United States ;1854;39
+United States ;1855;39
+United States ;1856;39
+United States ;1857;39
+United States ;1858;39
+United States ;1859;39
+United States ;1860;39
+United States ;1861;38
+United States ;1862;35
+United States ;1863;34
+United States ;1864;31
+United States ;1865;38
+United States ;1866;39
+United States ;1867;39
+United States ;1868;39
+United States ;1869;39
+United States ;1870;39
+United States ;1871;39
+United States ;1872;39
+United States ;1873;39
+United States ;1874;39
+United States ;1875;39
+United States ;1876;39
+United States ;1877;39
+United States ;1878;39
+United States ;1879;39
+United States ;1880;39
+United States ;1881;40
+United States ;1882;41
+United States ;1883;41
+United States ;1884;42
+United States ;1885;42
+United States ;1886;43
+United States ;1887;43
+United States ;1888;44
+United States ;1889;45
+United States ;1890;45
+United States ;1891;46
+United States ;1892;46
+United States ;1893;46
+United States ;1894;47
+United States ;1895;47
+United States ;1896;47
+United States ;1897;48
+United States ;1898;48
+United States ;1899;49
+United States ;1900;49
+United States ;1901;49
+United States ;1902;50
+United States ;1903;51
+United States ;1904;50
+United States ;1905;50
+United States ;1906;50
+United States ;1907;50
+United States ;1908;52
+United States ;1909;53
+United States ;1910;52
+United States ;1911;53
+United States ;1912;54
+United States ;1913;53
+United States ;1914;55
+United States ;1915;55
+United States ;1916;54
+United States ;1917;54
+United States ;1918;47
+United States ;1919;55
+United States ;1920;55
+United States ;1921;58
+United States ;1922;58
+United States ;1923;57
+United States ;1924;58
+United States ;1925;58
+United States ;1926;58
+United States ;1927;59
+United States ;1928;58
+United States ;1929;58
+United States ;1930;60
+United States ;1931;60
+United States ;1932;61
+United States ;1933;61
+United States ;1934;60
+United States ;1935;61
+United States ;1936;60
+United States ;1937;61
+United States ;1938;62
+United States ;1939;63
+United States ;1940;63
+United States ;1941;64
+United States ;1942;65
+United States ;1943;64
+United States ;1944;65
+United States ;1945;66
+United States ;1946;66
+United States ;1947;67
+United States ;1948;67
+United States ;1949;68
+United States ;1950;68
