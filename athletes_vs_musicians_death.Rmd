@@ -1,0 +1,29 @@
+---
+title: "Comparison Average age of death Athletes and Musical Artists"
+output: html_notebook
+---
+
+Define athletes and artists 
+```{r}
+ma_types <- musical_artist_ave_age %>%
+  mutate(type= 'musical artist')
+
+athlete_type <- athletes_ave_age %>%
+  mutate(type= 'athlete')
+  
+```
+combine data sets
+```{r}
+ath_and_ma_ave_age <- bind_rows(ma_types, athlete_type)
+```
+
+
+```{r}
+ggplot(data = ath_and_ma_ave_age, aes( fill= type, x= cuts, y = mean_age) )+
+  geom_bar(position='dodge', stat = "identity")+
+   xlab("Categories") + ylab("Age") +
+ggtitle("Comparison of age of death of Athletes and Musical Artists per 50 years")
+ggsave("")
+
+```
+
