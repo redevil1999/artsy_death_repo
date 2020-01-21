@@ -46,8 +46,10 @@ musical_artists_country_clean <- musical_artists_1800s%>%
     sep='/',
     remove=F
   ) %>%
-  #deleted the parts of the cell that was not part of the country
+  #added the unnecessary bits of the encoding of the country to various columns called 'rest'
   select(-starts_with('rest')) %>%
+  #deleted the columns that were called 'rest'
+  #replaced certain parts of the string to make it more legible
   mutate(
     country_cleaner = str_remove(country_cleaner, "'"),
     country_cleaner = str_replace_all(country_cleaner, "_", " ")
@@ -68,8 +70,15 @@ musical_artists_country_clean <- musical_artists_1800s%>%
     )
   )
 
-
+#categorised the files per group, if the amount of entries was higher than 5.
 temp_countries <- musical_artists_country_clean %>% group_by(region) %>% summarise(n = n()) %>%
     filter(n>5)
 
 ```
+
+temp_countries
+make csv file -> load into google sheets
+make new column -> manually write out countries (fill in completely (if not known, just say 'other'))
+make new columns -> english/ not english
+download as csv -> read in, join with the musical_artist_country_cleaner (to keep underlying data)
+select the columns necessary to increase legibility
