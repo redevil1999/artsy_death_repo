@@ -1,0 +1,71 @@
+---
+title: "Athletes"
+output: html_notebook
+---
+
+```{r}
+#load tidyverse
+library(tidyverse)
+```
+
+```{r}
+#load file 
+athletes_data <- read_csv('athletes.csv')
+```
+
+```{r}
+athletes_age <- athletes_data %>%
+  mutate(age = as.numeric(deathYear) - as.numeric(birthYear)) %>%
+  filter(as.numeric(deathYear) > as.numeric(birthYear)) 
+```
+
+```{r}
+athletes_1800s <- athletes_age %>% 
+  filter(birthYear >= 1815) %>% 
+  filter(age > 5) %>%
+  filter(age < 110) %>%
+  filter(as.numeric(deathYear) < 2019) %>%
+  filter(as.numeric(deathYear) > 0200)
+  
+```
+
+```{r}
+ggplot(data = athletes_1800s) +
+  geom_point(mapping = aes(x= as.numeric(birthYear), y = age)) + 
+  xlab("Birth Year") + 
+  ylab("age") + 
+  ggtitle("Age of Death of Athletes since the 1800s")
+```
+
+```{r}
+athlete_numeric <- athletes_1800s %>%
+  mutate(numeric_birthYear = as.numeric(birthYear)) 
+
+```
+
+```{r}
+
+athletes_group_age <- athlete_numeric %>%
+  filter(numeric_birthYear < 1951) %>%
+  mutate(cuts = cut(numeric_birthYear, breaks=c(1814, 1855, 1900, 1950), labels=FALSE)) %>%
+  mutate(cuts = ifelse(cuts == 1, '1815-1855', cuts)) %>%
+  mutate(cuts = ifelse(cuts == 2, '1856-1900', ifelse(cuts == 3, '1901-1950', cuts)))%>%
+  group_by(cuts)
+  
+  
+athletes_ave_age <-athletes_group_age %>%
+  summarise(mean_age = mean(age))
+```
+
+```{r}
+ggplot( data = athletes_ave_age) +
+  geom_col( mapping = aes(x= cuts, y = mean_age)) + xlab("Categories") + ylab("Age") + ggtitle("Age per 50 years")
+#ggsave('ath_ave_age.jpeg')
+
+
+```
+
+
+
+
+
