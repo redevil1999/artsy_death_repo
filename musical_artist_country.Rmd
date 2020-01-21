@@ -37,7 +37,7 @@ musical_artists_1800s <- musical_artist_age %>%
 ```
 used
 ```{r}
-
+#split up the countries from a link into a string
 musical_artists_country_clean <- musical_artists_1800s%>%
   separate(
     col=country,
@@ -46,6 +46,7 @@ musical_artists_country_clean <- musical_artists_1800s%>%
     sep='/',
     remove=F
   ) %>%
+  #deleted the parts of the cell that was not part of the country
   select(-starts_with('rest')) %>%
   mutate(
     country_cleaner = str_remove(country_cleaner, "'"),
@@ -57,7 +58,7 @@ musical_artists_country_clean <- musical_artists_1800s%>%
     country_countrycoded = countrycode(country_cleaner, 'country.name', 'country.name'),
     region_for_joining = ifelse(is.na(country_countrycoded), country_cleaner, NA)
    ) %>%
-  ## Cities
+  ## Changing the cities to belong to certain countries by joining a file that has all the cities that are part of that country
   left_join(world_countries, by='region_for_joining') %>%
   mutate(
     region = case_when(
