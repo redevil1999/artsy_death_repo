@@ -30,21 +30,21 @@ for filename in os.listdir('People'):
             elif 'ontology/associatedMusicalArtist_label' in artist:
                 musical_artist.append(artist)
 
-for artist in musical_artist:
-    if 'ontology/birthDate' in artist:
-        birthdate = str(artist['ontology/birthDate'])
-        birthdate.split('-')
-        artist['birthDate'] = birthdate[0:4]
-    elif 'ontology/deathDate' in artist:
-        deathdate = str(artist['ontology/deathDate'])
-        deathdate.split('-')
-        artist['deathDate'] = deathdate[0:4]
+# for artist in musical_artist:
+#     if 'ontology/birthDate' in artist:
+#         birthdate = str(artist['ontology/birthDate'])
+#         birthdate.split('-')
+#         artist['birthDate'] = birthdate[0:4]
+#     elif 'ontology/deathDate' in artist:
+#         deathdate = str(artist['ontology/deathDate'])
+#         deathdate.split('-')
+#         artist['deathDate'] = deathdate[0:4]
 
 with open('musical_artist.csv', 'w', encoding= 'utf8') as file: 
     file.write('birthYear, deathYear \n')
     for entry in musical_artist: 
         if 'ontology/birthYear' in entry and 'ontology/deathYear' in entry:
             file.write(f'{entry["ontology/birthYear"]}, {entry["ontology/deathYear"]}\n')
-        else:
-            if 'birthDate' in entry and 'deathDate' in entry:
-                file.write(f'{entry["birthDate"]}, {entry["deathDate"]}\n')
+        # else:
+        #     if 'birthDate' in entry and 'deathDate' in entry:
+        #         file.write(f'{entry["birthDate"]}, {entry["deathDate"]}\n')

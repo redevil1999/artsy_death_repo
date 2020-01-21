@@ -1,0 +1,74 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+#load tidyverse
+library(tidyverse)
+library(countrycode)
+```
+
+```{r}
+#load file 
+musical_artist_country <- read_csv('musical_artist_country.csv')
+
+#load file 
+world_countries <- read_csv('worldcities.csv') %>%
+  select(region_for_joining=city_ascii, country_joined=country) %>%
+  distinct() %>%
+  distinct(region_for_joining, .keep_all = T)
+```
+
+```{r}
+#Calculated age of death
+musical_artist_age <- musical_artist_country %>%
+  mutate(numeric_birthYear = as.numeric(birthYear), numeric_deathYear = as.numeric(deathYear))%>%
+  mutate(age = numeric_deathYear-numeric_birthYear)
+
+#filtered to have the right entrances in the data
+musical_artists_1800s <- musical_artist_age %>% 
+  filter(numeric_birthYear >= 1815) %>% 
+  filter(numeric_deathYear > numeric_birthYear) %>%
+  filter(age>5) %>%
+  filter(age<110) %>%
+  filter(numeric_deathYear < 2019)
+
+```
+used
+```{r}
+
+musical_artists_country_clean <- musical_artists_1800s%>%
+  separate(
+    col=country,
+    into=c(paste0('rest', 1:4), 'country_cleaner'),
+    fill='left',
+    sep='/',
+    remove=F
+  ) %>%
+  select(-starts_with('rest')) %>%
+  mutate(
+    country_cleaner = str_remove(country_cleaner, "'"),
+    country_cleaner = str_replace_all(country_cleaner, "_", " ")
+  ) %>%
+  # attempt to start cleaning region
+  ## Clean countries
+  mutate(
+    country_countrycoded = countrycode(country_cleaner, 'country.name', 'country.name'),
+    region_for_joining = ifelse(is.na(country_countrycoded), country_cleaner, NA)
+   ) %>%
+  ## Cities
+  left_join(world_countries, by='region_for_joining') %>%
+  mutate(
+    region = case_when(
+      !is.na(country_countrycoded) ~ country_countrycoded,
+      !is.na(country_joined) ~ country_joined,
+      TRUE ~ country_cleaner
+    )
+  )
+
+
+temp_countries <- musical_artists_country_clean %>% group_by(region) %>% summarise(n = n()) %>%
+    filter(n>5)
+
+```
