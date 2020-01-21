@@ -40,15 +40,23 @@ for artist in musical_artist:
         deathdate.split('-')
         artist['deathDate'] = deathdate[0:4]
 
-with open('musical_artist.csv', 'w', encoding= 'utf8') as file: 
+with open('musical_artist_country.csv', 'w', encoding= 'utf8') as file: 
     file.write('birthYear, deathYear, country \n')
     for entry in musical_artist:
         if 'ontology/birthYear' in entry and 'ontology/deathYear' in entry and 'ontology/country_label' in entry:
-            file.write(f'{entry["ontology/birthYear"]}, {entry["ontology/deathYear"]}, {entry['ontology/country_label']}\n')
+            file.write(f'{entry["ontology/birthYear"]}, {entry["ontology/deathYear"]}, {entry["ontology/country_label"]}\n')
         elif 'ontology/birthYear' in entry and 'ontology/deathYear' in entry and 'ontology/country' in entry:
-            file.write(f'{entry["ontology/birthYear"]}, {entry["ontology/deathYear"]}, {entry['ontology/country']}\n')
+            file.write(f'{entry["ontology/birthYear"]}, {entry["ontology/deathYear"]}, {entry["ontology/country"]}\n')
+        elif 'ontology/birthYear' in entry and 'ontology/deathYear' in entry and 'ontology/nationality' in entry:
+            file.write(f'{entry["ontology/birthYear"]}, {entry["ontology/deathYear"]}, {entry["ontology/nationality"]}\n')
+        elif 'ontology/birthYear' in entry and 'ontology/deathYear' in entry and 'ontology/nationality_label' in entry:
+            file.write(f'{entry["ontology/birthYear"]}, {entry["ontology/deathYear"]}, {entry["ontology/nationality_label"]}\n')
+        elif 'ontology/birthYear' in entry and 'ontology/deathYear' in entry and 'ontology/birthPlace' in entry:
+            file.write(f'{entry["ontology/birthYear"]}, {entry["ontology/deathYear"]}, {entry["ontology/birthPlace"]}\n')
+        elif 'ontology/birthYear' in entry and 'ontology/deathYear' in entry and 'ontology/birthPlace_label' in entry:
+            file.write(f'{entry["ontology/birthYear"]}, {entry["ontology/deathYear"]}, {entry["ontology/birthPlace_label"]}\n')
         else:
-        if 'ontology/birthYear' in entry and 'ontology/deathYear' in entry:
-            file.write(f'{entry["ontology/birthYear"]}, {entry["ontology/deathYear"]}, NA\n')
-        elif 'birthDate' in entry and 'deathDate' in entry:
+            if 'ontology/birthYear' in entry and 'ontology/deathYear' in entry:
+                file.write(f'{entry["ontology/birthYear"]}, {entry["ontology/deathYear"]}, NA\n')
+            elif 'birthDate' in entry and 'deathDate' in entry:
                 file.write(f'{entry["birthDate"]}, {entry["deathDate"]}, NA\n')
