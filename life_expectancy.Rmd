@@ -1,0 +1,34 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+#load tidyverse
+library('tidyverse')
+```
+
+```{r}
+#load file 
+life_expectancty <- read_csv('life_expectancy_world.csv')
+```
+
+```{r}
+#grouped years
+life_expectancty_grouped <- life_expectancty %>%
+  mutate(cuts = cut(Year, breaks=c(1814, 1855, 1900, 1950), labels=FALSE)) %>%
+  mutate(cuts = ifelse(cuts == 1, '1815-1855', cuts)) %>%
+  mutate(cuts = ifelse(cuts == 2, '1856-1900', ifelse(cuts == 3, '1901-1950', cuts)))%>%
+  group_by(cuts)
+```
+
+```{r}
+life_expectancty_grouped_ave <- life_expectancty_grouped %>%
+  summarise(mean_expectancy = mean(Expectancy))
+```
+
+```{r}
+ggplot( data = life_expectancty_grouped_ave) +
+  geom_col( mapping = aes(x= cuts, y = mean_expectancy)) + xlab("Categories") + ylab("Expectancy") + ggtitle("Life expectancy per 50 years")
+```
+test
