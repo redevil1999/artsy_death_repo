@@ -17,15 +17,46 @@ musical_artist <- read_csv('musical_artist.csv')
 musical_artist_age <- musical_artist %>%
   mutate(age = deathYear - as.numeric(birthYear))
 
-musical_artists_1900s <- musical_artist_age %>% 
+musical_artists_1800s <- musical_artist_age %>% 
   filter(birthYear >= 1815) %>% 
   filter(deathYear > as.numeric(birthYear)) %>%
   filter(age>5) %>%
   filter(age<110) %>%
   filter(deathYear < 2019)
 
-ggplot( data = musical_artists_1900s) +
+ggplot( data = musical_artists_1800s) +
   geom_point( mapping = aes(x= as.numeric(birthYear), y = age)) + xlab("Birth Year") + ylab("age") + ggtitle("Age of Death of Musical Artists since the 1800s")
   
   
 ```
+
+Average age for everyone born in 1815-1865, 1866-1915, 1916-1965 and 1966-2015
+
+```{r}
+musical_artist_numeric <- musical_artists_1800s %>%
+  mutate(numeric_birthYear = as.numeric(birthYear)) 
+
+```
+
+```{r}
+
+musical_artist_group_age <- musical_artist_numeric %>%
+  filter(numeric_birthYear < 1951) %>%
+  mutate(cuts = cut(numeric_birthYear, breaks=c(1814, 1855, 1900, 1950), labels=FALSE)) %>%
+  mutate(cuts = ifelse(cuts == 1, '1815-1855', cuts)) %>%
+  mutate(cuts = ifelse(cuts == 2, '1856-1900', ifelse(cuts == 3, '1901-1950', cuts)))%>%
+  group_by(cuts)
+  
+  
+musical_artist_ave_age <-musical_artist_group_age %>%
+  summarise(mean_age = mean(age))
+```
+```{r}
+ggplot( data = musical_artist_ave_age) +
+  geom_col( mapping = aes(x= cuts, y = mean_age)) + xlab("Categories") + ylab("Age") + ggtitle("Age per 50 years")
+ggsave('ma_ave_age.jpeg')
+
+
+```
+
+People born between 1815-1855 died about 4 years younger then people born after 1855. Musical artists born between 1856-1900 and 1901-1950 did not have a difference in the average age of death.
