@@ -1,0 +1,44 @@
+---
+title: "Athletes"
+output: html_notebook
+---
+
+```{r}
+#load tidyverse
+library(tidyverse)
+```
+
+```{r}
+#load file 
+athletes_data <- read_csv('athletes.csv')
+```
+
+```{r}
+athletes_age <- athletes_data %>%
+  mutate(age = as.numeric(deathYear) - as.numeric(birthYear)) %>%
+  filter(as.numeric(deathYear) > as.numeric(birthYear)) 
+```
+
+```{r}
+athletes_1800s <- athletes_age %>% 
+  filter(birthYear >= 1815) %>% 
+  filter(age > 5) %>%
+  filter(age < 110) %>%
+  filter(as.numeric(deathYear) < 2019) %>%
+  filter(as.numeric(deathYear) > 0200)
+  
+```
+
+```{r}
+ggplot(data = athletes_1800s) +
+  geom_point(mapping = aes(x= as.numeric(birthYear), y = age)) + 
+  xlab("Birth Year") + 
+  ylab("age") + 
+  ggtitle("Age of Death of Athletes since the 1800s")
+```
+
+
+
+
+
+
