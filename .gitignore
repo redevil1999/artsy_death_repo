@@ -1,4 +1,10 @@
-
+.Rproj.user/
 *.json
 
 *.csv
+
+*.html
+
+*.Rproj
+
+*.jpeg
