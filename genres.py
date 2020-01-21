@@ -63,16 +63,21 @@ with open('musical_artist.genres.csv', 'w', encoding= 'utf8') as file:
             else:
                 isValid = False
 
-            if 'ontology/genre' in entry:
-                csvline += f'{entry["ontology/genre_label"]},'
-            elif 'ontology/genre_label' in entry:
-                csvline += f'{entry["ontology/genre_label"]},'
+            if 'ontology/genre_label' in entry:
+                lines = []
+                if type(entry['ontology/genre_label']) == str:
+                    entry['ontology/genre_label'] = [entry['ontology/genre_label']]
+                for genre in entry['ontology/genre_label']:
+                    csvline += f'{genre}\n'
+                    lines.append(csvline)
+            
             else:
                 isValid = False
 
             isDone = True
         if isValid:
-            file.write(f'{csvline}\n')
+            for line in lines:
+                file.write(line)
         
 
         # if 'ontology/birthYear' in entry and 'ontology/deathYear' in entry and 'ontology/genre_label'in entry:
