@@ -42,6 +42,11 @@ calculate average age of every genre
 genres_and_age <- selected_genres %>%
   mutate(
     age = as.numeric(deathYear) - birthYear) %>%
+   filter(birthYear >= 1815) %>% 
+  filter(deathYear > as.numeric(birthYear)) %>%
+  filter(age>5) %>%
+  filter(age<110) %>%
+  filter(deathYear < 2019)%>%
   group_by(genre_category) 
 
 genre_avg_age <- genres_and_age %>%
@@ -53,6 +58,16 @@ genre_avg_age <- genres_and_age %>%
 
 create graph
 
+```{r}
+ggplot(data = genre_avg_age, aes( fill= genre_category, x= genre_category, y = mean_age) )+
+  geom_bar(position='dodge', stat = "identity")+
+   xlab("Categories") + ylab("Mean Age") +
+  labs(fill = 'Genre\n') +
+ggtitle("Comparison of Average Age of death of Artists by Genres")
+ggsave("DeathByGenre.png")
+
+
+```
 
 
 
