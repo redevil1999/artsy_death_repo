@@ -82,3 +82,25 @@ make new column -> manually write out countries (fill in completely (if not know
 make new columns -> english/ not english
 download as csv -> read in, join with the musical_artist_country_cleaner (to keep underlying data)
 select the columns necessary to increase legibility
+
+```{r}
+#write csv file
+write.csv(temp_countries, file = 'temp_countries.csv')
+
+```
+
+```{r}
+#load modified csv file
+temp_countries_english <- read_csv('temp_countries_english.csv')
+
+```
+
+```{r}
+#join and select relevant countries
+mac_clean <- musical_artists_country_clean %>%
+  select(country_cleaner, numeric_birthYear, numeric_deathYear, region) %>%
+  left_join(temp_countries_english, by = 'region')
+
+
+
+```
