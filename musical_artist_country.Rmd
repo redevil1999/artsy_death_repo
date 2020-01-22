@@ -1,0 +1,120 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+#load tidyverse
+library(tidyverse)
+library(countrycode)
+```
+
+```{r}
+#load file 
+musical_artist_country <- read_csv('musical_artist_country.csv')
+
+#load file 
+world_countries <- read_csv('worldcities.csv') %>%
+  select(region_for_joining=city_ascii, country_joined=country) %>%
+  distinct() %>%
+  distinct(region_for_joining, .keep_all = T)
+```
+
+```{r}
+#Calculated age of death
+musical_artist_age <- musical_artist_country %>%
+  mutate(numeric_birthYear = as.numeric(birthYear), numeric_deathYear = as.numeric(deathYear))%>%
+  mutate(age = numeric_deathYear-numeric_birthYear)
+
+#filtered to have the right entrances in the data
+musical_artists_1800s <- musical_artist_age %>% 
+  filter(numeric_birthYear >= 1815) %>% 
+  filter(numeric_deathYear > numeric_birthYear) %>%
+  filter(age>5) %>%
+  filter(age<110) %>%
+  filter(numeric_deathYear < 2019)
+
+```
+used
+```{r}
+#split up the countries from a link into a string
+musical_artists_country_clean <- musical_artists_1800s%>%
+  separate(
+    col=country,
+    into=c(paste0('rest', 1:4), 'country_cleaner'),
+    fill='left',
+    sep='/',
+    remove=F
+  ) %>%
+  #added the unnecessary bits of the encoding of the country to various columns called 'rest'
+  select(-starts_with('rest')) %>%
+  #deleted the columns that were called 'rest'
+  #replaced certain parts of the string to make it more legible
+  mutate(
+    country_cleaner = str_remove(country_cleaner, "'"),
+    country_cleaner = str_replace_all(country_cleaner, "_", " ")
+  ) %>%
+  # attempt to start cleaning region
+  ## Clean countries
+  mutate(
+    country_countrycoded = countrycode(country_cleaner, 'country.name', 'country.name'),
+    region_for_joining = ifelse(is.na(country_countrycoded), country_cleaner, NA)
+   ) %>%
+  ## Changing the cities to belong to certain countries by joining a file that has all the cities that are part of that country
+  left_join(world_countries, by='region_for_joining') %>%
+  mutate(
+    region = case_when(
+      !is.na(country_countrycoded) ~ country_countrycoded,
+      !is.na(country_joined) ~ country_joined,
+      TRUE ~ country_cleaner
+    )
+  )
+
+#categorised the files per group, if the amount of entries was higher than 5.
+temp_countries <- musical_artists_country_clean %>% group_by(region) %>% summarise(n = n()) %>%
+    filter(n>5)
+
+```
+
+temp_countries
+make csv file -> load into google sheets
+make new column -> manually write out countries (fill in completely (if not known, just say 'other'))
+make new columns -> english/ not english
+download as csv -> read in, join with the musical_artist_country_cleaner (to keep underlying data)
+select the columns necessary to increase legibility
+
+```{r}
+#write csv file
+write.csv(temp_countries, file = 'temp_countries.csv')
+
+```
+
+```{r}
+#load modified csv file
+temp_countries_english <- read_csv('temp_countries_english.csv')
+
+```
+
+```{r}
+#join and select relevant countries
+mac_clean <- musical_artists_country_clean %>%
+  select(country_cleaner, numeric_birthYear, numeric_deathYear, region, age) %>%
+  left_join(temp_countries_english, by = 'region')
+
+mac_clean_age_century <- mac_clean %>%
+  filter(numeric_birthYear < 1951) %>%
+  mutate(cuts = cut(numeric_birthYear, breaks=c(1814, 1855, 1900, 1950), labels=FALSE)) %>%
+  mutate(cuts = ifelse(cuts == 1, '1815-1855', cuts)) %>%
+  mutate(cuts = ifelse(cuts == 2, '1856-1900', ifelse(cuts == 3, '1901-1950', cuts)))%>%
+  group_by(cuts, country, english) %>%
+  summarise(mean_age = mean(age))
+
+```
+
+```{r}
+graph_english_countries <- mac_clean_age_century %>%
+  filter(english == TRUE)
+
+
+
+```

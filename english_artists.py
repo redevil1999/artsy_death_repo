@@ -30,21 +30,29 @@ for filename in os.listdir('People'):
             elif 'ontology/associatedMusicalArtist_label' in artist:
                 musical_artist.append(artist)
 
-# for artist in musical_artist:
-#     if 'ontology/birthDate' in artist:
-#         birthdate = str(artist['ontology/birthDate'])
-#         birthdate.split('-')
-#         artist['birthDate'] = birthdate[0:4]
-#     elif 'ontology/deathDate' in artist:
-#         deathdate = str(artist['ontology/deathDate'])
-#         deathdate.split('-')
-#         artist['deathDate'] = deathdate[0:4]
-
-with open('musical_artist.csv', 'w', encoding= 'utf8') as file: 
-    file.write('birthYear, deathYear \n')
-    for entry in musical_artist: 
-        if 'ontology/birthYear' in entry and 'ontology/deathYear' in entry:
-            file.write(f'{entry["ontology/birthYear"]}, {entry["ontology/deathYear"]}\n')
-        # else:
-        #     if 'birthDate' in entry and 'deathDate' in entry:
-        #         file.write(f'{entry["birthDate"]}, {entry["deathDate"]}\n')
+with open('musical_artist_country.csv', 'w', encoding= 'utf8') as file: 
+    file.write('birthYear, deathYear, country \n')
+    for entry in musical_artist:
+        if 'ontology/birthYear' in entry:
+            birthYear = entry["ontology/birthYear"]
+            if 'ontology/deathYear' in entry:
+                deathYear = entry["ontology/deathYear"]
+                if 'ontology/country_label' in entry:
+                    country = entry['ontology/country_label']
+                elif 'ontology/country' in entry:
+                    country = entry['ontology/country']
+                elif 'ontology/nationality_label' in entry:
+                    country = entry['ontology/nationality_label']
+                elif 'ontology/nationality' in entry:
+                    country = entry['ontology/nationality']
+                elif  'ontology/birthPlace' in entry:
+                    country = entry['ontology/birthPlace']
+                elif 'ontology/birthPlace_label' in entry:
+                    country = entry['ontology/birthPlace_label']
+                else:
+                    country = "NA"
+                if type(country) == list:
+                    country_clean = country[0]
+                else:
+                    country_clean = country
+                file.write(f'{birthYear},{deathYear},{country_clean}\n')
