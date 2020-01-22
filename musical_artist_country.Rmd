@@ -98,8 +98,22 @@ temp_countries_english <- read_csv('temp_countries_english.csv')
 ```{r}
 #join and select relevant countries
 mac_clean <- musical_artists_country_clean %>%
-  select(country_cleaner, numeric_birthYear, numeric_deathYear, region) %>%
+  select(country_cleaner, numeric_birthYear, numeric_deathYear, region, age) %>%
   left_join(temp_countries_english, by = 'region')
+
+mac_clean_age_century <- mac_clean %>%
+  filter(numeric_birthYear < 1951) %>%
+  mutate(cuts = cut(numeric_birthYear, breaks=c(1814, 1855, 1900, 1950), labels=FALSE)) %>%
+  mutate(cuts = ifelse(cuts == 1, '1815-1855', cuts)) %>%
+  mutate(cuts = ifelse(cuts == 2, '1856-1900', ifelse(cuts == 3, '1901-1950', cuts)))%>%
+  group_by(cuts, country, english) %>%
+  summarise(mean_age = mean(age))
+
+```
+
+```{r}
+graph_english_countries <- mac_clean_age_century %>%
+  filter(english == TRUE)
 
 
 
