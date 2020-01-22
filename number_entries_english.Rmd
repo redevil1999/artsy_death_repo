@@ -1,0 +1,20 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+Determining the number of entries for English Speaking countries vs Non-English speaking Countries
+
+```{r}
+
+#popularity of English speaking artists vs other languages
+#artists_english <- mac_clean %>%
+  #group_by(english, country) %>%
+  #summarise(entries = n())
+
+#ggplot(data = artists_english) +
+  #geom_col(mapping = aes(x = country, y = entries))+
+  #xlab('Countries')+
+  #ylab('Amount of entries')+
+  #ggtitle('Entries for English vs Non-English speaking Countries')
+
+```
