@@ -6,15 +6,36 @@ Determining the number of entries for English Speaking countries vs Non-English 
 
 ```{r}
 
-#popularity of English speaking artists vs other languages
-#artists_english <- mac_clean %>%
-  #group_by(english, country) %>%
-  #summarise(entries = n())
-
-#ggplot(data = artists_english) +
-  #geom_col(mapping = aes(x = country, y = entries))+
-  #xlab('Countries')+
-  #ylab('Amount of entries')+
-  #ggtitle('Entries for English vs Non-English speaking Countries')
+#the Languages
+artists_english <- mac_clean %>%
+  group_by(english, country) %>%
+  summarise(entries = n())
 
 ```
+
+```{r}
+
+artists_english_nona <- artists_english %>%
+  drop_na()
+
+```
+
+```{r}
+ggplot(data = artists_english_nona)+
+  geom_histogram(mapping = aes(x= entries, stat="count", fill = english), binwidth = .1)+
+  scale_x_log10() +
+  xlab('Amount of entries')+
+  ylab('Countries')+
+  ggtitle('Entries for English speaking Countries')+
+  theme(axis.text.x = element_text(angle=90, hjust=1))
+ggsave('artists_english.jpeg')
+
+```
+ggplot(data = artists_english_no)+
+  geom_histogram(mapping = aes(x= entries, stat="count"), binwidth = .1)+
+  scale_x_log10()+
+  xlab('Countries')+
+  ylab('Amount of entries')+
+  ggtitle('Entries for Non-English speaking Countries')+
+  theme(axis.text.x = element_text(angle=90, hjust=1))
+
