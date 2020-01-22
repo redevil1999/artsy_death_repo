@@ -68,8 +68,7 @@ with open('musical_artist.genres.csv', 'w', encoding= 'utf8') as file:
                 if type(entry['ontology/genre_label']) == str:
                     entry['ontology/genre_label'] = [entry['ontology/genre_label']]
                 for genre in entry['ontology/genre_label']:
-                    csvline += f'{genre}\n'
-                    lines.append(csvline)
+                    lines.append(f'{csvline}{genre}\n')
             
             else:
                 isValid = False

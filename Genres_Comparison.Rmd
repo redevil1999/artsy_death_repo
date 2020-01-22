@@ -1,0 +1,74 @@
+---
+title: "GneresComparison"
+output: html_notebook
+---
+
+
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+genres_data <- read_csv('musical_artist.genres.csv')
+```
+select genres and create new data set with chosen genres
+```{r}
+genres_grouped <- genres_data %>%
+  group_by(genre)
+
+selected_genres<- genres_grouped %>%
+    mutate(
+    genre_category = case_when(
+      str_detect(genre, "rock") | str_detect(genre, "Rock") ~ "Rock",
+      str_detect(genre, "bebop") |  str_detect(genre, "Bebop") ~ "Bebop",
+      str_detect(genre, "classical") |  str_detect(genre, "Calssical") ~ "Classical",
+      str_detect(genre, "pop") |  str_detect(genre, "Pop") ~ "Pop",
+      str_detect(genre, "blues") |  str_detect(genre, "Blues") ~ "Blues",
+      str_detect(genre, "jazz") |  str_detect(genre, "Jazz") ~ "Jazz",
+      str_detect(genre, "country") |  str_detect(genre, "Country") ~ "Country",
+      str_detect(genre, "folk") |  str_detect(genre, "Folk") ~ "Folk",
+      str_detect(genre, "gospel") |  str_detect(genre, "Gospel") ~ "Gospel"
+    )
+  ) %>%
+  filter(!is.na(genre_category))
+  
+  # filter(str_detect(genre, "rock") | str_detect(genre, "Rock"))
+  
+```
+
+calculate average age of every genre
+```{r}
+genres_and_age <- selected_genres %>%
+  mutate(
+    age = as.numeric(deathYear) - birthYear) %>%
+   filter(birthYear >= 1815) %>% 
+  filter(deathYear > as.numeric(birthYear)) %>%
+  filter(age>5) %>%
+  filter(age<110) %>%
+  filter(deathYear < 2019)%>%
+  group_by(genre_category) 
+
+genre_avg_age <- genres_and_age %>%
+  summarise(mean_age= mean(age))
+   
+#FIX CLASSICAL AGES
+```
+
+
+create graph
+
+```{r}
+ggplot(data = genre_avg_age, aes( fill= genre_category, x= genre_category, y = mean_age) )+
+  geom_bar(position='dodge', stat = "identity")+
+   xlab("Categories") + ylab("Mean Age") +
+  labs(fill = 'Genre\n') +
+ggtitle("Comparison of Average Age of death of Artists by Genres")
+ggsave("DeathByGenre.png")
+
+
+```
+
+
+
+
