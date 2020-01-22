@@ -5,10 +5,11 @@
 
 *.html
 
-*.Rproj
 
 *.jpeg
 
 *.png
 
 *.jpg
+
+.Rhistory
