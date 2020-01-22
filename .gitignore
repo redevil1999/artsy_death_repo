@@ -14,3 +14,5 @@
 *.jpg
 
 .Rhistory
+
+.Rproj.user/
