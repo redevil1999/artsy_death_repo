@@ -103,10 +103,10 @@ mac_clean <- musical_artists_country_clean %>%
 
 mac_clean_age_century <- mac_clean %>%
   filter(numeric_birthYear < 1951) %>%
-  mutate(cuts = cut(numeric_birthYear, breaks=c(1814, 1855, 1900, 1950), labels=FALSE)) %>%
-  mutate(cuts = ifelse(cuts == 1, '1815-1855', cuts)) %>%
-  mutate(cuts = ifelse(cuts == 2, '1856-1900', ifelse(cuts == 3, '1901-1950', cuts)))%>%
-  group_by(cuts, country, english) %>%
+  mutate(years = cut(numeric_birthYear, breaks=c(1814, 1855, 1900, 1950), labels=FALSE)) %>%
+  mutate(years = ifelse(years == 1, '1815-1855', years)) %>%
+  mutate(years = ifelse(years == 2, '1856-1900', ifelse(years == 3, '1901-1950', years)))%>%
+  group_by(years, country, english) %>%
   summarise(mean_age = mean(age))
 
 ```
@@ -115,6 +115,14 @@ mac_clean_age_century <- mac_clean %>%
 graph_english_countries <- mac_clean_age_century %>%
   filter(english == TRUE)
 
-
-
+ggplot( data = graph_english_countries) + 
+  geom_col( mapping = aes(x= country, y = mean_age, fill=years), position='dodge') + 
+  xlab("Countries") + 
+  ylab("Average Age") + 
+  ggtitle("Average Age for Musical Artists per Country per Interval of Years") + 
+  coord_flip() 
+  theme(axis.text.x = element_text(angle=90, hjust=1)) 
+  
+ggsave('ma_country_interval.jpeg')
+  
 ```
