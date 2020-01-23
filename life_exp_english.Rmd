@@ -10,7 +10,7 @@ library('tidyverse')
 
 ```{r}
 #load file 
-life_expectancty <- read_csv2('Group_project/life_expectancy_english.csv')
+life_expectancty <- read_csv2('life_expectancy_english.csv')
 ```
 
 ```{r}
@@ -19,7 +19,7 @@ life_expectancty_grouped <- life_expectancty %>%
   mutate(years = cut(Year, breaks=c(1814, 1855, 1900, 1950), labels=FALSE)) %>%
   mutate(years = ifelse(years == 1, '1815-1855', years)) %>%
   mutate(years = ifelse(years == 2, '1856-1900', ifelse(years == 3, '1901-1950', years)))%>%
-  group_by(years, Country)
+  group_by(years)
 ```
 
 ```{r}
@@ -40,4 +40,3 @@ ggplot( data = life_expectancty_grouped_ave) +
 ```{r}
 ggsave('plot_English.jpg')
 ```
-test
