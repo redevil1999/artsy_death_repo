@@ -1,0 +1,38 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+#load tidyverse
+library('tidyverse')
+```
+
+```{r}
+#load file 
+life_expectancty <- read_csv2('life_expectancy_region.csv')
+```
+
+```{r}
+#grouped by years & country
+life_expectancty_grouped <- life_expectancty %>%
+  mutate(years = cut(Year, breaks=c(1814, 1855, 1900, 1950), labels=FALSE)) %>%
+  mutate(years = ifelse(years == 1, '1815-1855', years)) %>%
+  mutate(years = ifelse(years == 2, '1856-1900', ifelse(years == 3, '1901-1950', years)))%>%
+  group_by(years, Region)
+```
+
+```{r}
+#calculated mean per country and time period
+life_expectancty_grouped_ave <- life_expectancty_grouped %>%
+  summarise(mean_expectancy = mean(Expectancy))
+```
+
+```{r}
+#made plot of average life expectancy per country and time period
+ggplot( data = life_expectancty_grouped_ave) +
+  geom_col( mapping = aes(x= Region, y = mean_expectancy, fill=years), position='dodge') +
+  xlab("Regions") +
+  ylab("Expectancy") +
+  ggtitle("Average life expectancy over time")
+```
