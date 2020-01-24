@@ -42,9 +42,9 @@ musical_artist_numeric <- musical_artists_1800s %>%
 
 musical_artist_group_age <- musical_artist_numeric %>%
   filter(numeric_birthYear < 1951) %>%
-  mutate(cuts = cut(numeric_birthYear, breaks=c(1814, 1860, 1905, 1950), labels=FALSE)) %>%
-  mutate(cuts = ifelse(cuts == 1, '1815-1860', cuts)) %>%
-  mutate(cuts = ifelse(cuts == 2, '1861-1905', ifelse(cuts == 3, '1906-1950', cuts)))%>%
+  mutate(cuts = cut(numeric_birthYear, breaks=c(1814, 1855, 1900, 1950), labels=FALSE)) %>%
+  mutate(cuts = ifelse(cuts == 1, '1815-1855', cuts)) %>%
+  mutate(cuts = ifelse(cuts == 2, '1856-1900', ifelse(cuts == 3, '1901-1950', cuts)))%>%
   group_by(cuts)
   
   

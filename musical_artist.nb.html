@@ -1755,35 +1755,45 @@ summary {
 <pre class="r"><code>#load tidyverse
 library(tidyverse)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
-<!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2xvYWQgZmlsZSBcbm11c2ljYWxfYXJ0aXN0IDwtIHJlYWRfY3N2KCdtdXNpY2FsX2FydGlzdC5jc3YnKVxuYGBgIn0= -->
-<pre class="r"><code>#load file 
-musical_artist &lt;- read_csv(&#39;musical_artist.csv&#39;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUGFyc2VkIHdpdGggY29sdW1uIHNwZWNpZmljYXRpb246XG5jb2xzKFxuICBiaXJ0aFllYXIgPSBcdTAwMWJbMzFtY29sX2NoYXJhY3RlcigpXHUwMDFiWzM5bSxcbiAgZGVhdGhZZWFyID0gXHUwMDFiWzMybWNvbF9kb3VibGUoKVx1MDAxYlszOW1cbilcbiJ9 -->
-<pre><code>Parsed with column specification:
-cols(
-  birthYear = [31mcol_character()[39m,
-  deathYear = [32mcol_double()[39m
-)</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2Qgb3ZlcndyaXR0ZW4gYnkgJ2RwbHlyJzpcbiAgbWV0aG9kICAgICAgICAgICBmcm9tXG4gIHByaW50LnJvd3dpc2VfZGYgICAgIFxuUmVnaXN0ZXJlZCBTMyBtZXRob2RzIG92ZXJ3cml0dGVuIGJ5ICdkYnBseXInOlxuICBtZXRob2QgICAgICAgICBmcm9tXG4gIHByaW50LnRibF9sYXp5ICAgICBcbiAgcHJpbnQudGJsX3NxbCAgICAgIFxuXHUwMDFiWzM3bS0tIFx1MDAxYlsxbUF0dGFjaGluZyBwYWNrYWdlc1x1MDAxYlsyMm0gLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tIHRpZHl2ZXJzZSAxLjMuMCAtLVx1MDAxYlszOW1cblx1MDAxYlszN21cdTAwMWJbMzJtPFUrMjcxMz5cdTAwMWJbMzdtIFx1MDAxYlszNG1nZ3Bsb3QyXHUwMDFiWzM3bSAzLjIuMSAgICAgXHUwMDFiWzMybTxVKzI3MTM+XHUwMDFiWzM3bSBcdTAwMWJbMzRtcHVycnIgIFx1MDAxYlszN20gMC4zLjNcblx1MDAxYlszMm08VSsyNzEzPlx1MDAxYlszN20gXHUwMDFiWzM0bXRpYmJsZSBcdTAwMWJbMzdtIDIuMS4zICAgICBcdTAwMWJbMzJtPFUrMjcxMz5cdTAwMWJbMzdtIFx1MDAxYlszNG1kcGx5ciAgXHUwMDFiWzM3bSAwLjguM1xuXHUwMDFiWzMybTxVKzI3MTM+XHUwMDFiWzM3bSBcdTAwMWJbMzRtdGlkeXIgIFx1MDAxYlszN20gMS4wLjAgICAgIFx1MDAxYlszMm08VSsyNzEzPlx1MDAxYlszN20gXHUwMDFiWzM0bXN0cmluZ3JcdTAwMWJbMzdtIDEuNC4wXG5cdTAwMWJbMzJtPFUrMjcxMz5cdTAwMWJbMzdtIFx1MDAxYlszNG1yZWFkciAgXHUwMDFiWzM3bSAxLjMuMSAgICAgXHUwMDFiWzMybTxVKzI3MTM+XHUwMDFiWzM3bSBcdTAwMWJbMzRtZm9yY2F0c1x1MDAxYlszN20gMC40LjBcdTAwMWJbMzltXG4ifQ== -->
+<pre><code>Registered S3 method overwritten by &#39;dplyr&#39;:
+  method           from
+  print.rowwise_df     
+Registered S3 methods overwritten by &#39;dbplyr&#39;:
+  method         from
+  print.tbl_lazy     
+  print.tbl_sql      
+[37m-- [1mAttaching packages[22m --------------------------------------- tidyverse 1.3.0 --[39m
+[37m[32m&lt;U+2713&gt;[37m [34mggplot2[37m 3.2.1     [32m&lt;U+2713&gt;[37m [34mpurrr  [37m 0.3.3
+[32m&lt;U+2713&gt;[37m [34mtibble [37m 2.1.3     [32m&lt;U+2713&gt;[37m [34mdplyr  [37m 0.8.3
+[32m&lt;U+2713&gt;[37m [34mtidyr  [37m 1.0.0     [32m&lt;U+2713&gt;[37m [34mstringr[37m 1.4.0
+[32m&lt;U+2713&gt;[37m [34mreadr  [37m 1.3.1     [32m&lt;U+2713&gt;[37m [34mforcats[37m 0.4.0[39m</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubXVzaWNhbF9hcnRpc3RfYWdlIDwtIG11c2ljYWxfYXJ0aXN0ICU+JVxuICBtdXRhdGUoYWdlID0gZGVhdGhZZWFyIC0gYmlydGhZZWFyKVxuYGBgIn0= -->
-<pre class="r"><code>musical_artist_age &lt;- musical_artist %&gt;%
-  mutate(age = deathYear - birthYear)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3IgaW4gZGVhdGhZZWFyIC0gYmlydGhZZWFyIDogbm9uLW51bWVyaWMgYXJndW1lbnQgdG8gYmluYXJ5IG9wZXJhdG9yXG4ifQ== -->
-<pre><code>Error in deathYear - birthYear : non-numeric argument to binary operator</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>Average age for everyone born in 1815-1865, 1866-1915, 1916-1965 and 1966-2015</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>People born between 1815-1855 died about 4 years younger then people born after 1855. Musical artists born between 1856-1900 and 1901-1950 did not have a difference in the average age of death.</p>
+<!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpgYGB7cn0NCiNsb2FkIHRpZHl2ZXJzZQ0KbGlicmFyeSh0aWR5dmVyc2UpDQpgYGANCg0KYGBge3J9DQojbG9hZCBmaWxlIA0KbXVzaWNhbF9hcnRpc3QgPC0gcmVhZF9jc3YoJ211c2ljYWxfYXJ0aXN0LmNzdicpDQpgYGANCg0KYGBge3J9DQptdXNpY2FsX2FydGlzdF9hZ2UgPC0gbXVzaWNhbF9hcnRpc3QgJT4lDQogIG11dGF0ZShhZ2UgPSBkZWF0aFllYXIgLSBiaXJ0aFllYXIpDQoNCm11c2ljYWxfYXJ0aXN0c18xOTAwcyA8LSBtdXNpY2FsX2FydGlzdF9hZ2UgJT4lIA0KICBmaWx0ZXIoDQogICAgYmlydGhZZWFyID49IDE5MDANCiAgKQ0KICANCiAgDQpgYGA=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpgYGB7cn0NCiNsb2FkIHRpZHl2ZXJzZQ0KbGlicmFyeSh0aWR5dmVyc2UpDQpgYGANCg0KYGBge3J9DQojbG9hZCBmaWxlIA0KbXVzaWNhbF9hcnRpc3QgPC0gcmVhZF9jc3YoJ211c2ljYWxfYXJ0aXN0LmNzdicpDQpgYGANCg0KYGBge3J9DQptdXNpY2FsX2FydGlzdF9hZ2UgPC0gbXVzaWNhbF9hcnRpc3QgJT4lDQogIG11dGF0ZShhZ2UgPSBkZWF0aFllYXIgLSBhcy5udW1lcmljKGJpcnRoWWVhcikpDQoNCm11c2ljYWxfYXJ0aXN0c18xODAwcyA8LSBtdXNpY2FsX2FydGlzdF9hZ2UgJT4lIA0KICBmaWx0ZXIoYmlydGhZZWFyID49IDE4MTUpICU+JSANCiAgZmlsdGVyKGRlYXRoWWVhciA+IGFzLm51bWVyaWMoYmlydGhZZWFyKSkgJT4lDQogIGZpbHRlcihhZ2U+NSkgJT4lDQogIGZpbHRlcihhZ2U8MTEwKSAlPiUNCiAgZmlsdGVyKGRlYXRoWWVhciA8IDIwMTkpDQoNCmdncGxvdCggZGF0YSA9IG11c2ljYWxfYXJ0aXN0c18xODAwcykgKw0KICBnZW9tX3BvaW50KCBtYXBwaW5nID0gYWVzKHg9IGFzLm51bWVyaWMoYmlydGhZZWFyKSwgeSA9IGFnZSkpICsgeGxhYigiQmlydGggWWVhciIpICsgeWxhYigiYWdlIikgKyBnZ3RpdGxlKCJBZ2Ugb2YgRGVhdGggb2YgTXVzaWNhbCBBcnRpc3RzIHNpbmNlIHRoZSAxODAwcyIpDQogIA0KICANCmBgYA0KDQpBdmVyYWdlIGFnZSBmb3IgZXZlcnlvbmUgYm9ybiBpbiAxODE1LTE4NjUsIDE4NjYtMTkxNSwgMTkxNi0xOTY1IGFuZCAxOTY2LTIwMTUNCg0KYGBge3J9DQptdXNpY2FsX2FydGlzdF9udW1lcmljIDwtIG11c2ljYWxfYXJ0aXN0c18xODAwcyAlPiUNCiAgbXV0YXRlKG51bWVyaWNfYmlydGhZZWFyID0gYXMubnVtZXJpYyhiaXJ0aFllYXIpKSANCg0KYGBgDQoNCmBgYHtyfQ0KDQptdXNpY2FsX2FydGlzdF9ncm91cF9hZ2UgPC0gbXVzaWNhbF9hcnRpc3RfbnVtZXJpYyAlPiUNCiAgZmlsdGVyKG51bWVyaWNfYmlydGhZZWFyIDwgMTk1MSkgJT4lDQogIG11dGF0ZShjdXRzID0gY3V0KG51bWVyaWNfYmlydGhZZWFyLCBicmVha3M9YygxODE0LCAxODYwLCAxOTA1LCAxOTUwKSwgbGFiZWxzPUZBTFNFKSkgJT4lDQogIG11dGF0ZShjdXRzID0gaWZlbHNlKGN1dHMgPT0gMSwgJzE4MTUtMTg2MCcsIGN1dHMpKSAlPiUNCiAgbXV0YXRlKGN1dHMgPSBpZmVsc2UoY3V0cyA9PSAyLCAnMTg2MS0xOTA1JywgaWZlbHNlKGN1dHMgPT0gMywgJzE5MDYtMTk1MCcsIGN1dHMpKSklPiUNCiAgZ3JvdXBfYnkoY3V0cykNCiAgDQogIA0KbXVzaWNhbF9hcnRpc3RfYXZlX2FnZSA8LW11c2ljYWxfYXJ0aXN0X2dyb3VwX2FnZSAlPiUNCiAgc3VtbWFyaXNlKG1lYW5fYWdlID0gbWVhbihhZ2UpKQ0KYGBgDQpgYGB7cn0NCmdncGxvdCggZGF0YSA9IG11c2ljYWxfYXJ0aXN0X2F2ZV9hZ2UpICsNCiAgZ2VvbV9jb2woIG1hcHBpbmcgPSBhZXMoeD0gY3V0cywgeSA9IG1lYW5fYWdlKSkgKyB4bGFiKCJDYXRlZ29yaWVzIikgKyB5bGFiKCJBZ2UiKSArIGdndGl0bGUoIkFnZSBwZXIgNTAgeWVhcnMiKQ0KZ2dzYXZlKCdtYV9hdmVfYWdlLmpwZWcnKQ0KDQoNCmBgYA0KDQpQZW9wbGUgYm9ybiBiZXR3ZWVuIDE4MTUtMTg1NSBkaWVkIGFib3V0IDQgeWVhcnMgeW91bmdlciB0aGVuIHBlb3BsZSBib3JuIGFmdGVyIDE4NTUuIE11c2ljYWwgYXJ0aXN0cyBib3JuIGJldHdlZW4gMTg1Ni0xOTAwIGFuZCAxOTAxLTE5NTAgZGlkIG5vdCBoYXZlIGEgZGlmZmVyZW5jZSBpbiB0aGUgYXZlcmFnZSBhZ2Ugb2YgZGVhdGgu</div>
 
 
 
