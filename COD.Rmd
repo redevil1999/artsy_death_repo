@@ -1,0 +1,47 @@
+---
+title: "Cause of Death Notebook"
+output: html_notebook
+---
+ 
+
+```{r}
+Music_COD <- read_delim('Musicians_Cause_o_Death.ssv', ";") 
+```
+Give umbrella names to COD
+```{r}
+COD_categorised <- Music_COD %>%
+  mutate(
+    COD_category = case_when(
+      str_detect(COD, 'cancer') | str_detect(COD, 'Cancer') | str_detect(COD, 'leukemia') | str_detect(COD, 'Leukemia') ~ 'Cancer',
+      str_detect(COD, 'Overdose') | str_detect(COD, 'overdose') | str_detect(COD, 'OD') | str_detect(COD, 'O.D.') | str_detect(COD, 'drug') | str_detect(COD, 'Drug') | str_detect(COD, 'alcohol') | str_detect(COD, 'cocaine') | str_detect(COD, 'heroin') | str_detect(COD, 'Heroin') | str_detect(COD, 'cocaine') ~ 'Drug and/or Alcohol-related',
+      str_detect(COD, 'accident') | str_detect(COD, 'Accident') | str_detect(COD, 'crash') | str_detect(COD, 'Crash') | str_detect(COD, 'hit') |  str_detect(COD, 'Hit') | str_detect(COD, 'struck') | str_detect(COD, 'injur')| str_detect(COD, 'fire') | str_detect(COD, 'FIRE') | str_detect(COD, 'victim') | str_detect(COD, 'fell') | str_detect(COD, 'drown') | str_detect(COD, 'Drown') | str_detect(COD, 'chok') |str_detect(COD, 'Chok') | str_detect(COD, 'fall') ~ 'Accident',
+      str_detect(COD, 'suicide') | str_detect(COD, 'Suicide') ~ 'Suicide',
+      str_detect(COD, 'shot') | str_detect(COD, 'Shot') | str_detect(COD, 'murder') | str_detect(COD, 'Murder') | str_detect(COD, 'stab') | str_detect(COD, 'Stab') | str_detect(COD, 'strangle') | str_detect(COD, 'shoot') ~ 'Homicide',
+      str_detect(COD, 'illness') | str_detect(COD, 'Illness') | str_detect(COD, 'disease') | str_detect(COD, 'Disease') | str_detect(COD, 'natural causes') | str_detect(COD, 'complications') | str_detect(COD, 'Complications') | str_detect(COD, 'Diabetes') | str_detect(COD, 'diabetes') | str_detect(COD, 'Diabet') | str_detect(COD, 'diabet') | str_detect(COD, 'itis') | str_detect(COD, 'lymphoma') | str_detect(COD, 'Lymphoma') | str_detect(COD, 'noma') | str_detect(COD, 'loma') | str_detect(COD, 'sarcoma') | str_detect(COD, 'pneumonia')| str_detect(COD, 'Pneumonia') | str_detect(COD, 'osis') | str_detect(COD, 'kidney') | str_detect(COD, 'liver failure') | str_detect(COD, 'aneurysm') | str_detect(COD, 'sema') | str_detect(COD, 'eizure') | str_detect(COD, 'emia') | str_detect(COD, 'rrhage') ~ 'Disease or Natural Causes', 
+      str_detect(COD, 'syphillis') | str_detect(COD, 'Syphillis') | str_detect(COD, 'philis') | str_detect(COD, 'AIDS') ~ 'STI/STD -related',
+      str_detect(COD, 'Heart') | str_detect(COD, 'heart') | str_detect(COD, 'cardiac') ~ 'Heart -related',
+      str_detect(COD, 'tumor') | str_detect(COD, 'Tumor') ~ 'Tumor',
+      str_detect(COD, 'stroke') | str_detect(COD, 'Stroke') ~ 'Stroke',
+      TRUE ~ "Other"
+    )
+  ) %>%
+  group_by(COD_category)
+    
+```
+
+select columns to keep
+```{r}
+useful_muisicCOD_data <- COD_categorised %>%
+  select(-c(Name, Genre, Note))
+```
+make graph
+```{r}
+ggplot(data = useful_muisicCOD_data, aes(COD_category, fill= COD_category)) +
+  geom_bar(position = "dodge") +
+  xlab("Cause of Death") + ylab ("Number of Musicians") +
+  labs(fill = 'Cause of Death') +
+  theme(axis.text.x = element_text(angle = -45, hjust = 0))+
+  theme(legend.position = "none") +
+    ggsave("CauseofDeathofVariousMusicalArtists.jpeg")
+```
+

@@ -55,14 +55,15 @@ genre_avg_age <- genres_and_age %>%
 ```
 
 
-create graph
+create graph : ggtitle("Comparison of Average Age of death of Artists by Genres")
 
-```{r}
-ggplot(data = genre_avg_age, aes( fill= genre_category, x= reorder(genre_category, -mean_age), y = mean_age) )+
+```{r comparison avg age of death by genre}
+ggplot(data = genre_avg_age, aes( fill= genre_category, x= reorder(genre_category, mean_age), y = mean_age) )+
   geom_bar(position='dodge', stat = "identity")+
-   xlab("Categories") + ylab("Mean Age") +
+   xlab("Music Genres") + ylab("Average Age of Death") +
   labs(fill = 'Genre\n') +
-ggtitle("Comparison of Average Age of death of Artists by Genres")
+  theme(legend.position = "none") +
+
 
 ggsave("DeathByGenre.png")
 
@@ -71,7 +72,7 @@ ggsave("DeathByGenre.png")
 
 Extend to 27 club 
 
-```{r}
+```{r create club 27}
 genres_age_27 <- selected_genres %>%
   mutate(
     age = as.numeric(deathYear) - birthYear) %>%
@@ -84,12 +85,16 @@ genres_age_27 <- selected_genres %>%
 
 ```
 
-```{r}
+
+```{r Comparison of Club 27 by genre}
 ggplot(data = genres_age_27, aes(genre_category, fill = genre_category)) +
   geom_bar(position = "dodge") +
-   xlab("Categories") + ylab("Number of deaths before age of 27") +
+   xlab("Music Genres") + ylab("Number of deaths before age of 27") +
   labs(fill = 'Genre\n') +
-ggtitle("Comparison of number of deaths before the age of 27 of Artists by Genres")
+  theme(legend.position = "none") +
+  geom_text(
+    mapping = aes(label=stat(count)), stat='count', vjust=-0.5
+  )
 ggsave("Death27ByGenre.png")
 
 
@@ -97,7 +102,7 @@ ggsave("Death27ByGenre.png")
 
 Create proportional club 27 graph 
 
-```{r}
+```{r proportional club 27 genre}
 genre_27_proportion <- genres_and_age %>%
   mutate(yesno_27 = ifelse(age < 28,'club27','neee')) %>%
   group_by(genre_category, yesno_27) %>%
@@ -107,12 +112,15 @@ genre_27_proportion <- genres_and_age %>%
 ```
 
 
-```{r}
-ggplot(data = genre_27_proportion, aes(fill = genre_category, x = genre_category, y = proportion)) +
+```{r proportional club 27 graph}
+ggplot(data = genre_27_proportion, aes(fill = genre_category, x = reorder(genre_category, proportion), y = proportion)) +
   geom_bar(position = "dodge", stat = "identity") +
    xlab("Categories") + ylab("Percentage of deaths before age of 27 from each Genre") +
   labs(fill = 'Genre\n') +
-ggtitle("Proportion of deaths before the age of 27 of Artists by Genres") +
+  theme(legend.position = "none") +
+  geom_text(
+    mapping = aes(label= paste0("n=", club27, "/", neee + club27)), vjust=-0.5
+  )
 ggsave("Death27ByGenre.png")
  
 ```
