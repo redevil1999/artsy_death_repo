@@ -36,7 +36,7 @@ selected_genres<- genres_grouped %>%
   
 ```
 
-calculate average age of every genre
+calculate average age of death of every genre
 ```{r}
 genres_and_age <- selected_genres %>%
   mutate(
@@ -45,11 +45,12 @@ genres_and_age <- selected_genres %>%
   filter(deathYear > as.numeric(birthYear)) %>%
   filter(age>5) %>%
   filter(age<110) %>%
-  filter(deathYear < 2019)%>%
+  filter(birthYear <= 2019)%>%
   group_by(genre_category) 
 
 genre_avg_age <- genres_and_age %>%
-  summarise(mean_age= mean(age))
+  filter(birthYear <= 1950) %>%
+  summarise(mean_age = mean(age))
    
 ```
 
@@ -57,11 +58,12 @@ genre_avg_age <- genres_and_age %>%
 create graph
 
 ```{r}
-ggplot(data = genre_avg_age, aes( fill= genre_category, x= genre_category, y = mean_age) )+
+ggplot(data = genre_avg_age, aes( fill= genre_category, x= reorder(genre_category, -mean_age), y = mean_age) )+
   geom_bar(position='dodge', stat = "identity")+
    xlab("Categories") + ylab("Mean Age") +
   labs(fill = 'Genre\n') +
 ggtitle("Comparison of Average Age of death of Artists by Genres")
+
 ggsave("DeathByGenre.png")
 
 
@@ -76,15 +78,10 @@ genres_age_27 <- selected_genres %>%
   filter(birthYear >= 1815) %>% 
   filter(deathYear > as.numeric(birthYear)) %>%
   filter(age<28) %>%
-  filter(deathYear < 2019) %>%
+  filter(birthYear < 2019) %>%
   group_by(genre_category) 
 
-genre_27_proportion <- genres_and_age %>%
-  mutate(yesno_27 = ifelse(age < 28,'club27','neee')) %>%
-  group_by(genre_category, yesno_27) %>%
-  summarise(count = n()) %>%
-  pivot_wider(names_from = yesno_27, values_from = count) %>%
-  mutate(proportion = (club27/neee)*100) 
+
 ```
 
 ```{r}
@@ -98,6 +95,7 @@ ggsave("Death27ByGenre.png")
 
 ```
 
+Create proportional club 27 graph 
 
 ```{r}
 genre_27_proportion <- genres_and_age %>%
@@ -105,19 +103,18 @@ genre_27_proportion <- genres_and_age %>%
   group_by(genre_category, yesno_27) %>%
   summarise(count = n()) %>%
   pivot_wider(names_from = yesno_27, values_from = count) %>%
-  mutate(proportion = (club27/neee)*100) 
-
+  mutate(proportion = (club27/(club27 + neee))*100) 
 ```
 
 
 ```{r}
 ggplot(data = genre_27_proportion, aes(fill = genre_category, x = genre_category, y = proportion)) +
   geom_bar(position = "dodge", stat = "identity") +
-   xlab("Categories") + ylab("Proportion of deaths before age of 27") +
+   xlab("Categories") + ylab("Percentage of deaths before age of 27 from each Genre") +
   labs(fill = 'Genre\n') +
 ggtitle("Proportion of deaths before the age of 27 of Artists by Genres") +
 ggsave("Death27ByGenre.png")
-
+ 
 ```
 
 
